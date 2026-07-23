@@ -540,7 +540,7 @@ docs/troubleshooting_manus_migration.md
 已完成/积累内容：
 
 - Manus Quantum 手套在 Linux/Docker/ROS2 下的接入说明。
-- udev、USB 透传、SDK library、dongle/license、ROS2 topic 排查。
+- udev、USB 透传、SDK library、硬件访问权限、ROS2 topic 排查。
 - 从 Manus ergonomics 字段解析拇指、食指、中指相关关节。
 - 三指夹爪 URDF 解析、主动关节与 mimic 关节处理。
 - `ManusGripperRetargeter` 通过 YAML 做 `q = gain * value + offset` 映射。
@@ -640,7 +640,7 @@ sudo apt install python3.10-venv
 
 因为事件需要连续 `hold_frames` 帧确认。后来把事件 fid 改为连续确认窗口第一帧，而不是确认完成那一帧。
 
-### Docker 读不到 `/home/.../output/egocentric_data` 怎么办？
+### Docker 读不到 host 侧旧数据目录怎么办？
 
 把 session 放到 Docker 可见的数据目录，或者传 session 名让 `session_paths.py` 自动解析。推荐数据目录：
 
@@ -691,7 +691,7 @@ python3 -m py_compile pico/session_paths.py pico/replay_arm_cartesian.py pico/ha
 - Python 缓存：`__pycache__/`、`.pytest_cache/`。
 - Unity 缓存：`Library/`、`Temp/`、`Obj/`、`Logs/`、`Builds/*BackUpThisFolder*`。
 - 大体积 APK/模型权重，除非确认可以公开发布。
-- 第三方闭源 SDK wheel、license、dongle 信息。
+- 第三方闭源 SDK wheel、授权信息、硬件访问凭据。
 - 设备序列号、公司内网 IP、真实机器人控制器地址、个人用户名路径。
 - 公司私有 URDF/CAD/配置，除非确认有权开源。
 
@@ -735,4 +735,3 @@ Builds/*BackUpThisFolder*
 - 把 grasp/release 事件识别扩展成连续手势强度输出，实现更平滑的手指同步。
 - 在真实机器人上统一记录 replay 日志：session、参数、axis-map、scale、是否成功抓取、失败原因。
 - 如后续部署 VLA/pi0.5，先补齐外部相机/腕部相机、标定和机器人动作数据格式。
-

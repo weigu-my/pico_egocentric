@@ -1,0 +1,8 @@
+numpy
+scipy
+Pillow
+pynput
+
+# Optional hardware/runtime packages:
+# bc-stark-sdk==2.0.2
+# rclpy is normally installed through ROS2, not pip.
