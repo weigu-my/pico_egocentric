@@ -15,6 +15,7 @@ This repository intentionally contains a sanitized subset only:
 - public Revo2 URDF text files and license
 - synthetic/unit tests that do not include real robot data
 - project memory document in `docs/project_memory_for_github.md`
+- sanitized project blog in `docs/project_blog.md`
 
 The following are not included:
 
